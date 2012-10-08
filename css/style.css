@@ -340,17 +340,34 @@ body {
   -o-transition: opacity 0.8s;
   transition: opacity 0.8s; }
   .step:not(.active) {
-    opacity: 0.1; }
+    opacity: 0.05; }
   .step h1 {
-    color: #d73c50; }
+    color: #d73c50;
+    font-size: 1em; }
   .step h2 {
     color: #cc8791; }
   .step h1, .step h2 {
-    margin-top: 30px; }
+    margin-top: 30px;
+    -webkit-transition: 1.5s;
+    -moz-transition: 1.5s;
+    -ms-transition: 1.5s;
+    -o-transition: 1.5s;
+    transition: 1.5s;
+    -webkit-transition-delay: 0.25s;
+    -moz-transition-delay: 0.25s;
+    -ms-transition-delay: 0.25s;
+    -o-transition-delay: 0.25s;
+    transition-delay: 0.25s; }
     .step h1 :first-child, .step h2 :first-child {
       margin-top: 0; }
+  .step.active h1 {
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    transform: scale(1.3); }
   .step .definition {
-    margin-top: 80px; }
+    margin-top: 60px; }
 
 pre {
   display: block;
@@ -383,10 +400,25 @@ pre {
     display: block;
     margin-top: 35px;
     text-align: right;
-    color: #fa4e6d; }
+    color: #fa4e6d;
+    -webkit-transition: 2.5s;
+    -moz-transition: 2.5s;
+    -ms-transition: 2.5s;
+    -o-transition: 2.5s;
+    transition: 2.5s; }
+
+#demo.active .seeit {
+  -webkit-transform: translateX(100px);
+  -moz-transform: translateX(100px);
+  -ms-transform: translateX(100px);
+  -o-transform: translateX(100px);
+  transform: translateX(100px); }
 
 #amd h1 {
-  font-size: 1.1em; }
+  font-size: 0.9em; }
+
+#esri {
+  background: url("../img/esri.png") right bottom no-repeat; }
 
 #html {
   background: url("../img/html5.png") left bottom no-repeat;
