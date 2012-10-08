@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="author" content="Brandon Copeland" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body class="impress-non-supported">
+<div id="impress">
+    <div id="intro" class="step" data-x="0" data-y="0">
+        <a href="https://github.com/brandoncopeland/otromapa" target="_blank">github.com/brandoncopeland/otromapa</a>
+    </div>
+    <div id="demo" class="step" data-x="1024" data-y="0">
+        <p>Yeah. That's cool. Whatever. <span class="seeit">Let's see it...</span></p>
+    </div>
+    <div id="modularity" class="step" data-x="1600" data-y="600" data-rotate="180">
+        <h1>Backbone.js | Underscore.js</h1>
+        <div class="definition">
+            <pre><code><span class="keyword">var</span> MapModel <span class="equal">=</span> <span class="highlight">Backbone.Model.extend</span>({...</code></pre>
+            <pre><code><span class="keyword">var</span> BaseMapPickerView <span class="equal">=</span> <span class="highlight">Backbone.View.extend</span>({...</code></pre>
+            <pre><code><span class="keyword">var</span> graphics <span class="equal">=</span> <span class="highlight">_.map</span>(featureModels, <span class="keyword">function</span> (model) {
+  <span class="keyword">var</span> graphic <span class="equal">=</span> <span class="keyword">new</span> esri.Graphic(model.get('geometry'));
+  graphic.setAttributes(model.get('props'));
+  <span class="keyword">return</span> graphic;
+});</code></pre>
+        </div>
+    </div>
+    <div id="amd" class="step" data-x="500" data-y="900" data-rotate="160">
+        <h1>Asynchronous Module Definition (AMD)</h1>
+        <h2>define( ) | require( )</h2>
+        <div class="definition">
+            <pre><code><span class="highlight">define</span>('models/mapmodel', ['jquery', 'dojo', 'esri'],
+  <span class="keyword">function</span> ($, dojo, esri) {</code></pre>
+            <pre><code><span class="highlight">require</span>(['js/plugins/jquery.tools.min.js'], <span class="keyword">function</span> () {
+  <span class="keyword">this</span>.$('[title]').tooltip(toolTipSettings);
+});</code></pre>
+        </div>
+    </div>
+    <div id="esri" class="step" data-x="0" data-y="1650" data-rotate="200">
+        <h1>ESRI | Dojo</h1>
+        <div class="definition">
+            <pre><code><span class="keyword">var</span> mapSettings <span class="equal">=</span> {
+  fadeOnZoom: <span class="keyword">true</span>,
+  fitExtent: <span class="keyword">true</span>,
+  logo: <span class="keyword">false</span>,
+  extent: <span class="keyword">this</span>.get('fullExtent')
+};
+
+<span class="keyword">var</span> map <span class="equal">=</span> <span class="keyword">new</span> <span class="highlight">esri.Map</span>(<span class="keyword">this</span>.get('domId'), mapSettings);</code></pre>
+            <pre><code><span class="keyword">var</span> win <span class="equal">=</span> <span class="highlight">dojoWin</span>.get(<span class="highlight">baseWin</span>.doc);</code></pre>
+        </div>
+    </div>
+    <div id="html" class="step" data-x="-2000" data-y="2000" data-rotate="160">
+        <h1>jQuery</h1>
+        <h1>HTML 5 Boilerplate</h1>
+        <h1>Normalize.css</h1>
+        <h1>Modernizr</h1>
+    </div>
+    <div id="bdd" class="step" data-x="-3000" data-y="1800" data-rotate="220">
+        <h1>Jasmine | Sinon.js</h1>
+        <div class="definition">
+            <pre><code><span class="highlight">it</span>('should construct an ESRI Map with parameters',
+  <span class="keyword">function</span> () {
+    <span class="keyword">var</span> fullExtent <span class="equal">=</span> <span class="keyword">this</span>.model.get('fullExtent');
+    <span class="highlight">expect</span>(<span class="keyword">this</span>.mapStub).<span class="highlight">toHaveBeenCalledWith</span>('map',
+      <span class="highlight">sinon.match</span>({
+        fadeOnZoom: <span class="keyword">true</span>,
+        fitExtent: <span class="keyword">true</span>,
+        logo: <span class="keyword">false</span>,
+        extent: <span class="highlight">sinon.match.instance</span>(esriGeometry.Extent)
+          .and(<span class="highlight">sinon.match</span>({ xmin: fullExtent.xmin }))
+      })
+    );
+});</code></pre>
+        </div>
+    </div>
+    <div id="build" class="step" data-x="-4000" data-y="1800" data-rotate="240">
+        <h1>r.js | UglifyJS</h1>
+        <div class="definition">
+            <pre><code>({
+  <span class="keyword">appDir</span>: '../',
+  <span class="keyword">baseUrl</span>: 'js',
+  <span class="keyword">dir</span>: '../../release-brazoriafloodplain',
+  <span class="keyword">paths</span>: {
+    'jquery': 'empty:',
+    'underscore': 'lib/underscore-amd-min',
+    'backbone': 'lib/backbone-amd-min',
+  },
+  <span class="keyword">modules</span>: [{
+    name: 'app/app-floodplain',
+  }],
+  <span class="keyword">optimize</span>: 'uglify',
+})</code></pre>
+        </div>
+    </div>
+    <div id="sass" class="step" data-x="-5000" data-y="1800" data-rotate="190">
+        <h1>SASS</h1>
+        <div class="definition">
+            <pre><code>$ <span class="keyword">sass</span> --watch style.scss:style.css</code></pre>
+            <pre><code><span class="highlight">@mixin retinabackground($file, $type, $width, $height)</span> {
+  background-image: url($file + '.' + $type);
+  @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+    & {
+      background-image: url($file + '_@2x.' + $type);
+      -webkit-background-size: $width $height;
+    }
+  }
+}</code></pre>
+        </div>
+    </div>
+    <div id="outro" class="step" data-x="300" data-y="900" data-scale="1000" data-rotate="220">
+        <a href="https://github.com/brandoncopeland/otromapa" target="_blank">github.com/brandoncopeland/otromapa</a>
+    </div>
+</div></script>
+<script src="js/impress.min.js"></script>
+<script>impress().init();</script>
+</body>
+</html>

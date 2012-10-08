@@ -1,0 +1,97 @@
+@import "resources.scss";
+@import "base.scss";
+
+body {
+	background-image: url('../img/bg.jpg');
+}
+
+.step {
+	width: 1000px;
+	text-align: center;
+	padding-bottom: 100px;
+
+	-webkit-transition: opacity 0.8s;
+	-moz-transition: opacity 0.8s;
+	-ms-transition: opacity 0.8s;
+	-o-transition: opacity 0.8s;
+	transition: opacity 0.8s;
+
+	&:not(.active) {
+		opacity: 0.1;
+	}
+
+	h1 {
+		color: #d73c50;
+	}
+	h2 {
+		color: #cc8791;
+	}
+	h1, h2 {
+		margin-top: 30px;
+		:first-child {
+			margin-top: 0;
+		}
+	}
+	
+	.definition {
+		margin-top: 80px;
+	}
+}
+
+
+pre {
+	display: block;
+	width: 100%;
+	text-align: left;
+	font-size: 0.6em;
+	line-height: 1.2;
+	margin-top: 20px;
+	.keyword, .equal {
+		color: lighten($color-base-text, 30%);
+	}
+	.keyword {
+		font-weight: bold;
+	}
+	.highlight {
+		background-color: rgba(244,241,130,0.5);
+		padding: {
+			left: 5px;
+			right: 5px;
+		}
+	}
+}
+
+#intro, #outro {
+	background: {
+		image: url('../img/github.png');
+		position: left top;
+		repeat: no-repeat;
+	}
+	padding: {
+		bottom: 200px;
+		top: 130px;
+		left: 80px;
+	}
+}
+
+#demo {
+	width: 700px;
+	.seeit {
+		font-size: 1.4em;
+		display: block;
+		margin-top: 35px;
+		text-align: right;
+		color: #fa4e6d;
+	}
+}
+
+#amd {
+	h1 {
+		font-size: 1.1em;
+	}
+}
+
+#html {
+	background: url('../img/html5.png') left bottom no-repeat;
+	padding-bottom: 250px;
+}
