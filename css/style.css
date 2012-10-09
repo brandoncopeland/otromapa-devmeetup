@@ -331,6 +331,7 @@ body {
   background-image: url("../img/bg.jpg"); }
 
 .step {
+  margin: 50px auto;
   width: 1000px;
   text-align: center;
   padding-bottom: 100px;
@@ -339,7 +340,9 @@ body {
   -ms-transition: opacity 0.8s;
   -o-transition: opacity 0.8s;
   transition: opacity 0.8s; }
-  .step:not(.active) {
+  .impress-supported .step {
+    margin: auto; }
+  .impress-supported .step:not(.active) {
     opacity: 0.05; }
   .step h1 {
     color: #d73c50;
@@ -423,3 +426,47 @@ pre {
 #html {
   background: url("../img/html5.png") left bottom no-repeat;
   padding-bottom: 250px; }
+
+.fallbackmessage {
+  margin: 100px;
+  font-size: 28px; }
+  .impress-supported .fallbackmessage {
+    display: none; }
+
+.hint {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 100px;
+  padding: 20px;
+  background-color: #000;
+  color: #fff;
+  opacity: 0;
+  text-align: center;
+  font-size: 28px;
+  z-index: 100;
+  -webkit-transform: translateY(300px);
+  -moz-transform: translateY(300px);
+  -ms-transform: translateY(300px);
+  -o-transform: translateY(300px);
+  transform: translateY(300px);
+  -webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
+  -moz-transition: opacity 1s, -moz-transform 0.5s 1s;
+  -ms-transition: opacity 1s, -ms-transform 0.5s 1s;
+  -o-transition: opacity 1s, -o-transform 0.5s 1s;
+  transition: opacity 1s, transform 0.5s 1s; }
+  .impress-enabled .hint {
+    display: block; }
+  .impress-on-intro .hint {
+    opacity: 0.6;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition: opacity 1s 3s, -webkit-transform 0.5s 2.5s;
+    -moz-transition: opacity 1s 3s, -moz-transform 0.5s 2.5s;
+    -ms-transition: opacity 1s 3s, -ms-transform 0.5s 2.5s;
+    -o-transition: opacity 1s 3s, -o-transform 0.5s 2.5s;
+    transition: opacity 1s 3s, transform 0.5s 2.5s; }
